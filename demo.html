@@ -1,0 +1,55 @@
+<!doctype>
+<html>
+	<head>
+		<link rel=stylesheet type=text/css href=https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css>
+		<script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.12/d3.min.js></script>
+		<script type=text/javascript src=https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js></script>
+		<script type=text/javascript src=bubblechart.js></script>
+	</head>
+	<body>
+	<div id=chart></div>
+	<script>
+	c3.generate({
+		bindto: '#chart',
+		grid: {
+			x: {lines: [{value: 0}]},
+			y: {lines: [{value: 0}]}
+		},
+		data: {
+			xs: {
+				versicolor: 'versicolor_x',
+				_versicolor: '_versicolor_x',
+			},
+			columns: [
+				["versicolor_x", 6, 8, 3, 2, 5, 6],
+				["versicolor",   -1, -2, -3, 1, 1, 2],
+				["_versicolor_x", 7, 5, 3, 8, 9, 0],
+				["_versicolor",   -2, -3, -3, 6, 2, 4],
+			],
+			zvalues: {
+				"versicolor": {
+					data: [2.500, 1.200, 2.100, 1, 2.200, 1.750],
+					label: "The real Z values"
+				},
+				"_versicolor": {
+					data: [1.5, .2, 1.1, 1, 1.2, .75],
+					label: "The alternative Z values"
+				}
+			},
+			bubbleColor: {
+				"versicolor": ["#000", "#333", "#666", "#999", "#aaa"]
+			},
+			type: 'bubble'
+		},
+		axis: {
+			x: {
+				label: 'X Axis.Label',
+				tick: { fit: true },
+				padding: { left: 1	}
+			},
+			y: { label: 'Y Axis.Label' }
+		}
+	});
+	</script>
+	</body>
+</html>

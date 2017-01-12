@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2017 abas Software AG (http://www.abas.de).
- */
-
 (function () {
 
 	c3.chart.internal.fn.additionalConfig = {

@@ -21,7 +21,7 @@
 				allvalues = allvalues.concat(that.config.data_zvalues[dataSeries]['data']);
 			}
 			var maxvalue = Math.max.apply(Math, allvalues);
-			var scalefactor = maxvalue / 50;
+			var scalefactor = maxvalue / 50; // factor must correspong to chart size
 			for (var dataSeries in that.config.data_zvalues) {
 				var zvalues = that.config.data_zvalues[dataSeries]['data'];
 				that.config.bubbleradius[dataSeries] = zvalues.map(function (value) {return value / scalefactor});
@@ -29,10 +29,8 @@
 		}
 		setBubbleradius();
 
-		// that.config.onresize = function ( ) {
-		// 	console.log('--------------');
-		// 	console.log(this.currentHeight);
-		// 	console.log(this.currentWidth);
+		// that.config.onresize = function ( ) {		
+		// 	re-scale
 		// };
 
 		// Set bubble radius callback
@@ -50,7 +48,6 @@
 		};
 
 		// Tooltip handler
-
 		this.config.tooltip_contents = function (items, defaultTitleFormat, defaultValueFormat, color) {
 
 			var item = items[0],
